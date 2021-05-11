@@ -6,7 +6,8 @@ from .models import Song, SoundBass
 
 def index(res, id): 
   s = Song.objects.get(id=id)
-  return HttpResponse("%s" % s.title)
+  sb = s.soundbass_set.get(id=1)
+  return HttpResponse("<h1>%s</h1><br/><h2>%s</h2>" %(s.title, sb.insturment))
 
 def home(res): 
   return HttpResponse("DaftPunk still lives")
