@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def index(res): 
   return HttpResponse("Around the World")
+
+def home(res): 
+  return HttpResponse("DaftPunk still lives")
