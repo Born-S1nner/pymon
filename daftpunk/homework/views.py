@@ -5,9 +5,8 @@ from .models import Song, SoundBass
 # Create your views here.
 
 def index(res): 
-  song_list = Song.objects.all()
-  output = ' <br/>'.join([s.title for s in song_list])
-  return HttpResponse(output)
+  sl = Song.objects.all()
+  return render(res, "homework/songlist.html", {"sl": sl})
 
 def song_pick(res, id):
   s = Song.objects.get(id=id)
@@ -18,4 +17,4 @@ def song_insta(res, id):
   return HttpResponse("<p>Composer: %s</p><p>Tempo: %s</p>" %(sb.insturment, sb.tempo))
 
 def home(res): 
-  return HttpResponse("DaftPunk still lives")
+  return render(res, "homework/home.html", {})

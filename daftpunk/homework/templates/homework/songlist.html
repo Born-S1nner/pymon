@@ -1,0 +1,12 @@
+{% extends "homework/base.html" %}
+{% block head %}SongList{% endblock %}
+
+{% block content %}
+  <h1>SongList</h1>
+  <hr/>
+  <ul>
+    {% for s in sl %}
+      <li>{{s.title}}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
