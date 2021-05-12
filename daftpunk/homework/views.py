@@ -5,8 +5,9 @@ from .models import Song, SoundBass
 # Create your views here.
 
 def index(res): 
-  s = Song.objects.all()
-  return HttpResponse("<div>%s</div>" %(s))
+  song_list = Song.objects.all()
+  output = ' <br/>'.join([s.title for s in song_list])
+  return HttpResponse(output)
 
 def song_pick(res, id):
   s = Song.objects.get(id=id)
