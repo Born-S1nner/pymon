@@ -22,7 +22,14 @@ def song_insta(res, id):
   )
 
 def create(res):
-  form = CreateNewSong()
+  if res.method == "POST":
+    form = CreateNewSong(res.POST)
+    if form.is_valid():
+      clean = form.cleaned_data["song", "composer"]
+      ns = Song(name=clean)
+      ns.save()
+  else:
+    form = CreateNewSong()
   return render(res, "homework/create.html", {"form":form})
 
 def home(res): 
