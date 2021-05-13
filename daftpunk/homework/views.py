@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Song, SoundBass
 from .forms import CreateNewSong
 
@@ -11,9 +11,7 @@ def index(res):
 
 def song_pick(res, id):
   s = Song.objects.get(id=id)
-  return HttpResponse(
-    "<h1>%s</h1><br/><h2>By: %s</h2><hr/><a href='/songpick/%s/'></a>" %(s.title, s.composer, s.id)
-  )
+  return HttpResponse("<h1>%s</h1><br/><h2>By: %s</h2><hr/><a href='/index/'>back</a>" %(s.title, s.composer))
 
 def song_insta(res, id):
   sb = SoundBass.objects.get(id=id)
@@ -29,6 +27,7 @@ def create(res):
       CC = form.cleaned_data["composer"]
       ns = Song(title=CT, composer=CC)
       ns.save()
+    return HttpResponseRedirect("/songpick/%i" %ns.id)
   else:
     form = CreateNewSong()
   return render(res, "homework/create.html", {"form":form})
