@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Song, SoundBass
+from .forms import CreateNewSong
 
 # Create your views here.
 
@@ -21,7 +22,8 @@ def song_insta(res, id):
   )
 
 def create(res):
-  return render(res, "homework/create.html", {})
+  form = CreateNewSong()
+  return render(res, "homework/create.html", {"form":form})
 
 def home(res): 
   return render(res, "homework/home.html", {})
