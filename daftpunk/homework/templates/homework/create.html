@@ -4,11 +4,12 @@
 
 {% block content %}
 <h2>Create Song</h2>
-
+<hr/>
 <form method="post" action="/create/">
-  {{% csrf_token%}}
+  {% csrf_token %}
   {{form.as_p}}
   <button type="submit", name="save">Enter</button>
 </form>
-
+<br/>
+<a href="/">back</a>!
 {% endblock %}

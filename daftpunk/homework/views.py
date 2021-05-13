@@ -25,8 +25,9 @@ def create(res):
   if res.method == "POST":
     form = CreateNewSong(res.POST)
     if form.is_valid():
-      clean = form.cleaned_data["song", "composer"]
-      ns = Song(name=clean)
+      CT = form.cleaned_data["title"]
+      CC = form.cleaned_data["composer"]
+      ns = Song(title=CT, composer=CC)
       ns.save()
   else:
     form = CreateNewSong()
