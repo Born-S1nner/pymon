@@ -1,8 +1,10 @@
 body {
-  background: white url("images/background.jpeg") no-repeat;
-  background-size: 100%;
+  margin: 0;
   font-size: 2rem;
-  color:white;
+  color:black;
+  background: white url("images/background.jpeg") no-repeat;
+  background-size: cover;
+  min-height: 59rem;
 }
 li a {
   color: gold
@@ -13,4 +15,6 @@ a {
 }
 .content {
   background-color: black;
+  padding: 2em 0em;
+  color: white;
 }
