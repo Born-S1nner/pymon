@@ -1,0 +1,12 @@
+body {
+  background-color: black;
+  font-size: 2rem;
+  color:white;
+}
+li a {
+  color: gold
+}
+a {
+  color: aqua;
+  font-weight: 900;
+}
