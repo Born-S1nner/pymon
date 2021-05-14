@@ -1,5 +1,6 @@
 body {
-  background-color: black;
+  background: white url("images/background.jpeg") no-repeat;
+  background-size: 100%;
   font-size: 2rem;
   color:white;
 }
@@ -9,4 +10,7 @@ li a {
 a {
   color: aqua;
   font-weight: 900;
+}
+.content {
+  background-color: black;
 }
