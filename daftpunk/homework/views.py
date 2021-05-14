@@ -11,13 +11,32 @@ def index(res):
 
 def song_pick(res, id):
   s = Song.objects.get(id=id)
-  return HttpResponse("<h1>%s</h1><br/><h2>By: %s</h2><hr/><a href='/songinsta/%s/'>details</a><br/><a href='/index/'>back</a>" %(s.title, s.composer, s.id))
+  template = """
+  <link rel='stylesheet' type='text/css' href='http://127.0.0.1:8000/static/homework/style.css' />
+  <div class='content'>
+    <h1>%s</h1>
+    <br/>
+    <h2>By: %s</h2>
+    <hr/>
+    <a href='/songinsta/%s/'>details</a>
+    <br/>
+    <a href='/index/'>back</a>
+  <div>
+  """ %(s.title, s.composer, s.id)
+  return HttpResponse(template)
 
 def song_insta(res, id):
   sb = SoundBass.objects.get(id=id)
-  return HttpResponse(
-    "<p>Composer: %s</p><p>Tempo: %s</p><hr/><a href='/songpick/%s/'>back</a>" %(sb.insturment, sb.tempo, sb.id)
-  )
+  template = """
+  <link rel='stylesheet' type='text/css' href='http://127.0.0.1:8000/static/homework/style.css' />
+  <div class='content'>
+    <p>Insturment: %s</p>
+    <p>Tempo: %s</p>
+    <hr/>
+    <a href='/songpick/%s/'>back</a>
+  </div>
+  """ %(sb.insturment, sb.tempo, sb.id)
+  return HttpResponse(template)
 
 def create(res):
   if res.method == "POST":
