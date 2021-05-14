@@ -11,12 +11,12 @@ def index(res):
 
 def song_pick(res, id):
   s = Song.objects.get(id=id)
-  return HttpResponse("<h1>%s</h1><br/><h2>By: %s</h2><hr/><a href='/index/'>back</a>" %(s.title, s.composer))
+  return HttpResponse("<h1>%s</h1><br/><h2>By: %s</h2><hr/><a href='/songinsta/%s/'>details</a><br/><a href='/index/'>back</a>" %(s.title, s.composer, s.id))
 
 def song_insta(res, id):
   sb = SoundBass.objects.get(id=id)
   return HttpResponse(
-    "<p>Composer: %s</p><p>Tempo: %s</p>" %(sb.insturment, sb.tempo)
+    "<p>Composer: %s</p><p>Tempo: %s</p><hr/><a href='/songpick/%s/'>back</a>" %(sb.insturment, sb.tempo, sb.id)
   )
 
 def create(res):
